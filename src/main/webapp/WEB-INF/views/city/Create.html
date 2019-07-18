@@ -1,10 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+<h1>Create City</h1>
+<p>
+    <a href="/city">Back to List City</a>
+</p>
+<form th:action="@{/create-city}" th:object="${city}" method="post">
+    <table>
+        <tr>
+            <td>Tên:</td>
+            <td><input type="text" th:field="*{nameCity}"/></td>
+        </tr>
+        <tr>
+            <td>Diện tích:</td>
+            <td><input type="text" th:field="*{areaCity}"/></td>
+        </tr>
+        <tr>
+            <td>Dân số:</td>
+            <td><input type="text" th:field="*{people}"/></td>
+        </tr>
+        <tr>
+            <td>GDP:</td>
+            <td><input type="text" th:field="*{GDP}"/></td>
+        </tr>
+        <tr>
+            <td>Quốc gia:</td>
+            <td>
+                <select>
+                    <option th:each="type : ${countries}"
+                            th:value="${type.id}"
+                            th:text="${type.getNameCountry()}">
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Giới thiệu:</td>
+            <td><input type="text" th:field="*{descriableCity}"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Nhập thành phố"></td>
+            <td><a href="/city">Thoát</a></td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>

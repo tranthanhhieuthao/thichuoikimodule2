@@ -1,10 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+<h3>Chỉnh sửa thành phố</h3>
+<p>
+    <a th:href="@{/city}">
+        Back to City list
+    </a>
+</p>
+<div>
+    <form action="#" th:action="@{/edit-city}" th:object="${city}"
+          method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}"/>
+        <table>
+            <tr>
+                <td>
+                    <label>Tên</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{nameCity}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Descriable</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{descriableCity}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Diện tích</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{areaCity}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Dân số</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{people}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>GDP</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{GDP}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select>
+                        <option th:each="type : ${countries}"
+                                th:value="${type.id}"
+                                th:text="${type.getNameCountry()}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Cập nhật">
+        <a href="/city">Thoát</a>
+    </form>
+</div>
 </body>
 </html>

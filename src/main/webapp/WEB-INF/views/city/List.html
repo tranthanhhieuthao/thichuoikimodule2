@@ -18,12 +18,12 @@
     </tr>
     <th:block th:each="ci : ${city}">
         <tr>
-        <td th:text="${ci.getId()}"></td>
-        <td th:text="${ci.getNameCity()}"></td>
-        <td th:text="${ci.getCountry().getNameCountry()}"></td>
-        <td><a th:href="@{/edit-city/__${ci.id}__}">chỉnh sửa</a></td>
-        <td><a th:href="@{/delete-city/__${ci.id}__}">xóa</a></td>
-        <td><a th:href="@{/detail-city/__${ci.id}__}">chi tiết</a></td>
+            <td th:text="${ci.getId()}"></td>
+            <td th:text="${ci.getNameCity()}"></td>
+            <td th:text="${ci.getCountry().getNameCountry()}"></td>
+            <td><a th:href="@{/edit-city/__${ci.id}__}">chỉnh sửa</a></td>
+            <td><a th:href="@{/delete-city/__${ci.id}__}">xóa</a></td>
+            <td><a th:href="@{/detail-city/__${ci.id}__}">chi tiết</a></td>
         </tr>
     </th:block>
 </table>
