@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail City</title>
+</head>
+<body>
+<h1>Thông tin chi tiết thành phố</h1>
+<p>
+    <a th:href="${referer}">Xem danh sách thành phố</a>
+</p>
+<!--<th>Detail</th>-->
+<table style="width: 900px;height: 600px;background: antiquewhite" border="1">
+    <th:block th:each="no : ${city}">
+            <tr>
+                <td>Tên:</td><td th:text="${city.getNameCity()}"></td>
+            </tr>
+            <tr>
+                <td> Quốc gia:</td><td th:text="${city.getCountry().getNameCountry()}"></td>
+            </tr>
+            <tr>
+                <td> Diện tích:</td><td th:text="${city.getAreaCity()}"></td>
+            </tr>
+            <tr>
+                <td>Dân số:</td><td th:text="${city.getPeople()}"></td>
+            </tr>
+            <tr>
+                <td> GDP:</td><td th:text="${city.getGDP()}"></td>
+            </tr>
+            <tr>
+                <td> Giới thiệu:</td><td th:text="${city.getDescriableCity()}"></td>
+            </tr>
+    </th:block>
+</table>
+<table style="width: 150px;height: 60px" border="1">
+<td><a th:href="@{/edit-city/__${city.id}__}">chỉnh sửa</a></td>
+<td><a th:href="@{/delete-city/__${city.id}__}">xóa</a></td>
+</table>
+</body>
+</html>
