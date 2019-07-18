@@ -59,6 +59,14 @@
             </tr>
             <tr>
                 <td>
+                    <label>country_id</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{country.id}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <select>
                         <option th:each="type : ${countries}"
                                 th:value="${type.id}"
